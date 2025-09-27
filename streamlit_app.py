@@ -134,19 +134,21 @@ elif st.session_state.step == 4:
 
     future_test = future_df[future_df.iloc[:,3] == st.session_state.user_name]
     first_letter_to_agent = "**[First Letter to Twenty-Year-Old Self]**\n" + future_test.iloc[0, 13]
-
     st.write(first_letter_to_agent)
 
-    with st.spinner("Wait for generating first letter..."):
-        for i in range(1, 4):
-            reply = dd_generate_gpt4_basic(
-                st.session_state.system_prompt,
-                st.session_state.knowledge,
-                first_letter_to_agent
-            )
-            st.subheader(f"3년 후 나의 답장 {i}")
-            st.write(reply)
+    # ✅ GPT 호출은 여기 버튼 안쪽에서만 실행됨
+    if st.button("✉️ 편지 생성하기"):
+        with st.spinner("Wait for generating first letter..."):
+            for i in range(1, 4):
+                reply = dd_generate_gpt4_basic(
+                    st.session_state.system_prompt,
+                    st.session_state.knowledge,
+                    first_letter_to_agent
+                )
+                st.subheader(f"3년 후 나의 답장 {i}")
+                st.write(reply)
 
+    # 네비게이션 버튼
     col1, col2 = st.columns(2)
     with col1:
         if st.button("이전 단계"):
