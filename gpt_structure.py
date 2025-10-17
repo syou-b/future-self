@@ -15,6 +15,34 @@ def dd_generate_gpt4_basic(system_prompt, knowledge, user_prompt):
     )
     return completion.choices[0].message.content
 
+def dd_generate_with_history(system_prompt, knowledge, history, user_prompt):
+    completion = openai.chat.completions.create(
+        model = MODEL,
+        messages = [
+            {'role': 'system', 'content': system_prompt},
+            {"role": "assistant", "content": knowledge},
+            *history, # unpack 연산자
+            {'role': 'user', 'content': user_prompt}
+        ]
+    )
+    return completion.choices[0].message.content
+
+
+def update_knowledge (knowledge , letters):
+    system_lib_file = 'data/prompt_template/update_knowledge_sys.txt'
+    f = open(system_lib_file, "r")
+    system_prompt = f.read()
+    f.close()
+
+    completion = openai.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {'role': 'system', 'content': system_prompt},
+            {'role': 'assistant', 'content': f'[Knowledge]\n\n{knowledge}'},
+            {'role': 'user', 'content': letters}
+        ]
+    )
+    return completion.choices[0].message.content
 
 class Inference(BaseModel):
     steps: list[str]
