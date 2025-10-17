@@ -23,21 +23,18 @@ if "knowledge" not in st.session_state:
 if "system_prompt" not in st.session_state:
     st.session_state.system_prompt = ""
 
-'''
-데이터 로드
-- [] 워크숍 병행팀 url 변경 필요
-- [] 워크숍 마무리팀 line 주석 처리하고, 워크숍 병행팀 주석 풀기
-'''
+
 # 워크숍 마무리팀
-spc_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1DI8Nc1v9qIhFcg2SloNsVj-33nTF8NeAiatnf_7TKwA/export?format=csv&gid=117892638")
-authentic_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1h84YK25uLQUQyD4u_TGQOeQEQgDvvQeto8ynkmowK6I/export?format=csv&gid=902877586")
-future_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1o7bkh7SZ7vD-XLDgdoV-DOouDIl64PVx3K13iWLeSCk/export?format=csv&gid=397229261")
-pre_df = pd.read_csv("https://docs.google.com/spreadsheets/d/12jnbvjOgdLy96UCeXgc5p2A3-0BWH1RLKD3gF5sqdRU/export?format=csv&gid=1266426431")
-# 워크숍 병행팀
 # spc_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1DI8Nc1v9qIhFcg2SloNsVj-33nTF8NeAiatnf_7TKwA/export?format=csv&gid=117892638")
 # authentic_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1h84YK25uLQUQyD4u_TGQOeQEQgDvvQeto8ynkmowK6I/export?format=csv&gid=902877586")
 # future_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1o7bkh7SZ7vD-XLDgdoV-DOouDIl64PVx3K13iWLeSCk/export?format=csv&gid=397229261")
 # pre_df = pd.read_csv("https://docs.google.com/spreadsheets/d/12jnbvjOgdLy96UCeXgc5p2A3-0BWH1RLKD3gF5sqdRU/export?format=csv&gid=1266426431")
+
+# 워크숍 병행팀
+spc_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1DI8Nc1v9qIhFcg2SloNsVj-33nTF8NeAiatnf_7TKwA/export?format=csv&gid=117892638")
+authentic_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1QWP_fLAeFfeqDFW__8fJAsPCHzNPNN9WTM-SL4He7cU/export?format=csv&gid=387718419")
+future_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1o7bkh7SZ7vD-XLDgdoV-DOouDIl64PVx3K13iWLeSCk/export?format=csv&gid=397229261")
+pre_df = pd.read_csv("https://docs.google.com/spreadsheets/d/12jnbvjOgdLy96UCeXgc5p2A3-0BWH1RLKD3gF5sqdRU/export?format=csv&gid=1266426431")
 
 # 스타일 적용
 st.markdown("""
