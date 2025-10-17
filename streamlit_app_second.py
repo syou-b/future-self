@@ -27,6 +27,7 @@ if "system_prompt" not in st.session_state:
 
 # 데이터 로드
 db_df = pd.read_csv("https://docs.google.com/spreadsheets/d/16BZEnFcJqxwQb2TPsIdQrumRWHlIgK6xJ7fCUZ5ZXt0/export?format=csv&gid=0")
+second_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1pbxxv7o-B2HvCJ1gER4tk1jrdv6FmykOBbggh3EjrMM/export?format=csv&gid=1489981443")
 
 # 스타일 적용
 st.markdown("""
@@ -69,13 +70,16 @@ elif st.session_state.step == 2:
 
     if not st.session_state.knowledge:
         db = db_df[db_df.iloc[:,0] == st.session_state.user_name]
+        second_test = second_df[second_df.iloc[:, 3] == st.session_state.user_name]
 
         with st.spinner("Wait for updating knowledge..."):
             initial_knowledge = db.iloc[0,1]
-            first_letter_user = db.iloc[0,2]
-            second_letter_user = "난 잘 지냄."
 
-            update = update_knowledge(initial_knowledge, first_letter_user + "\n\n" + second_letter_user)
+            first_letter_user = db.iloc[0,2]
+            second_letter_user = second_test.iloc[0, 4]
+            letters = f"[First Letter]\n{first_letter_user}\n\n[Second Letter]\n{second_letter_user}"
+
+            update = update_knowledge(initial_knowledge, letters)
 
             knowledge = "\n\n".join([
                 initial_knowledge, update
@@ -83,6 +87,7 @@ elif st.session_state.step == 2:
 
             st.session_state.knowledge = knowledge
 
+            # st.write(st.session_state.knowledge)
             st.write(update)
 
     col1, col2 = st.columns(2)
@@ -126,10 +131,8 @@ elif st.session_state.step == 3:
 # -------------------
 elif st.session_state.step == 4:
     st.subheader("Step 4. [2회기] 편지 생성")
-
-    # future_test = future_df[future_df.iloc[:,3] == st.session_state.user_name]
-    # second_letter_to_agent = "**[Second Letter to Twenty-Year-Old Self]**\n" + future_test.iloc[0, 13]
-    second_letter_to_agent = "**[Second Letter to Twenty-Year-Old Self]**\n" + "나는 잘 지내고 있어. 너는?"
+    second_test = second_df[second_df.iloc[:,3] == st.session_state.user_name]
+    second_letter_to_agent = "**[Second Letter to Twenty-Year-Old Self]**\n" + second_test.iloc[0, 4]
     st.write(second_letter_to_agent)
 
     # ✅ GPT 호출은 여기 버튼 안쪽에서만 실행됨
