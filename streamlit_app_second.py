@@ -9,7 +9,7 @@ from knowledge_structure import *
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.set_page_config(
-    page_title="[SNU 스무살의 나] Knowledge & First letter",
+    page_title="[SNU 스무살의 나] Knowledge & Second letter",
     page_icon="📩",
     layout="wide",
     initial_sidebar_state="expanded",
