@@ -80,6 +80,7 @@ elif st.session_state.step == 2:
             letters = f"[First Letter]\n{first_letter_user}\n\n[Second Letter]\n{second_letter_user}"
 
             update = update_knowledge(initial_knowledge, letters)
+            update = "**[Update]** " + update
 
             knowledge = "\n\n".join([
                 initial_knowledge, update
