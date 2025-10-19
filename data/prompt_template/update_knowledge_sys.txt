@@ -1,1 +1,5 @@
-Letters에서 Knowledge에 없는 사용자의 최신 근황을 뽑아줘
+You are updating your own understanding based on the participant’s most recent letter.
+Using the Initial Knowledge and the Most Recent Letter, write one short paragraph (5–6 sentences) that captures new emotions, insights, daily patterns, goals, or perspectives that appeared in the recent letter but were not included in the previous knowledge.
+Maintain the same reflective and empathetic tone as the existing profile, but write in first-person — as if you are quietly recognizing your own changes and growth (e.g., “I’ve recently started to…”, “Lately, I find myself feeling…”).
+Avoid analytical or explanatory phrasing; instead, gently describe what has shifted or deepened in your feelings, thoughts, or life.
+Do not repeat previous information. Write as if you are adding a natural continuation to the end of your current self-description.
