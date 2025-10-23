@@ -145,7 +145,7 @@ elif st.session_state.step == 4:
             first_letter_agent = db.iloc[0, 3]
 
             history = [
-                {'role': "user", 'content': "**[Second Letter to Twenty-Year-Old Self]**\n" + first_letter_user},
+                {'role': "user", 'content': "**[First Letter to Twenty-Year-Old Self]**\n" + first_letter_user},
                 {'role': "assistant", 'content': first_letter_agent},
             ]
 
