@@ -26,8 +26,10 @@ if "system_prompt" not in st.session_state:
     st.session_state.system_prompt = ""
 
 # 데이터 로드
+# db_df = pd.read_csv("https://docs.google.com/spreadsheets/d/16BZEnFcJqxwQb2TPsIdQrumRWHlIgK6xJ7fCUZ5ZXt0/export?format=csv&gid=0")
+# second_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1pbxxv7o-B2HvCJ1gER4tk1jrdv6FmykOBbggh3EjrMM/export?format=csv&gid=1489981443")
 db_df = pd.read_csv("https://docs.google.com/spreadsheets/d/16BZEnFcJqxwQb2TPsIdQrumRWHlIgK6xJ7fCUZ5ZXt0/export?format=csv&gid=0")
-second_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1pbxxv7o-B2HvCJ1gER4tk1jrdv6FmykOBbggh3EjrMM/export?format=csv&gid=1489981443")
+second_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1qt4XVgtXtIlRTOiVMt_Bt-eququoRCFaAFX4SlEsR60/export?format=csv&gid=1549047630")
 
 # 스타일 적용
 st.markdown("""
