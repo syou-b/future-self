@@ -53,7 +53,7 @@ if st.session_state.step == 1:
     with st.form("user_select"):
         user_name = st.radio(
             "Select User Name 👉",
-            options=db_df.iloc[:, 0].str.strip().unique(),
+            options=db_df.iloc[:, 0].unique(),
             key="user_radio"
         )
         submit = st.form_submit_button("다음 단계")
