@@ -27,7 +27,10 @@ if "system_prompt" not in st.session_state:
 
 # 데이터 로드
 db_df = pd.read_csv("https://docs.google.com/spreadsheets/d/16BZEnFcJqxwQb2TPsIdQrumRWHlIgK6xJ7fCUZ5ZXt0/export?format=csv&gid=0")
-third_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1heruAKhcwSQuje86-4yzM7DzMTgWg7XPWQB0oMjn9-U/export?format=csv&gid=1463778832")
+# 마무리팀
+# third_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1heruAKhcwSQuje86-4yzM7DzMTgWg7XPWQB0oMjn9-U/export?format=csv&gid=1463778832")
+# 병행팀
+third_df = pd.read_csv("https://docs.google.com/spreadsheets/d/1aJuSaKmNbdFsq8QCmMR3zQyEo5z3UOnMf-YS_ckG7f8/export?format=csv&gid=1890254892")
 
 # 스타일 적용
 st.markdown("""
@@ -50,7 +53,7 @@ if st.session_state.step == 1:
     with st.form("user_select"):
         user_name = st.radio(
             "Select User Name 👉",
-            options=db_df.iloc[:, 0].unique(),
+            options=db_df.iloc[:, 0].str.strip().unique(),
             key="user_radio"
         )
         submit = st.form_submit_button("다음 단계")
